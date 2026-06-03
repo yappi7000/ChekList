@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>女性が静かに去る男チェックリスト30</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    padding: 40px 20px;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  /* ヘッダー */
+  .page-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563a8 100%);
+    padding: 36px 40px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .page-title span { color: #93c5fd; }
+  .page-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* スコアバー */
+  .score-bar-section {
+    background: #eff6ff;
+    border-bottom: 1px solid #bfdbfe;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .score-num {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1e3a5f;
+    line-height: 1;
+    min-width: 80px;
+  }
+  .score-num span { font-size: 14px; color: #64748b; font-weight: 400; }
+  .score-right { flex: 1; }
+  .score-bar-wrap {
+    background: #dbeafe;
+    border-radius: 99px;
+    height: 8px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+  .score-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #3b82f6, #1e40af);
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .score-status {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2563a8;
+  }
+
+  /* コンテンツ */
+  .page-content { padding: 32px 40px 40px; }
+
+  /* セクション */
+  .section { margin-bottom: 28px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbeafe;
+  }
+  .section-emoji { font-size: 20px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e3a5f;
+    flex: 1;
+  }
+  .section-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2563a8;
+    background: #dbeafe;
+    padding: 3px 10px;
+    border-radius: 99px;
+  }
+
+  /* チェックアイテム */
+  .check-list { display: flex; flex-direction: column; gap: 2px; }
+  .check-item {
+    display: flex;
+    align-items: center;
+    padding: 11px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .check-item:hover { background: #eff6ff; }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-label {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    transition: all 0.25s;
+  }
+  .check-box {
+    width: 20px; height: 20px;
+    min-width: 20px;
+    border: 2px solid #bfdbfe;
+    border-radius: 5px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 11px;
+    color: transparent;
+    font-weight: 700;
+  }
+  .check-item input:checked ~ .check-label .check-box {
+    background: #2563a8;
+    border-color: #2563a8;
+    color: #fff;
+  }
+  .check-item input:checked ~ .check-label .check-text {
+    color: #94a3b8;
+    text-decoration: line-through;
+  }
+
+  .divider { border: none; border-top: 2px dashed #e2e8f0; margin: 28px 0; }
+
+  /* 診断結果グリッド */
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .result-card {
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid transparent;
+  }
+  .result-card.r1 { background: #f0fdf4; border-color: #bbf7d0; }
+  .result-card.r2 { background: #eff6ff; border-color: #bfdbfe; }
+  .result-card.r3 { background: #fffbeb; border-color: #fde68a; }
+  .result-card.r4 { background: #fef2f2; border-color: #fecaca; }
+  .result-icon { font-size: 22px; margin-bottom: 6px; }
+  .result-range {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .result-card.r1 .result-range { color: #16a34a; }
+  .result-card.r2 .result-range { color: #2563a8; }
+  .result-card.r3 .result-range { color: #d97706; }
+  .result-card.r4 .result-range { color: #dc2626; }
+  .result-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+  }
+  .result-desc { font-size: 11px; color: #64748b; line-height: 1.6; }
+
+  /* あなたの結果 */
+  .your-result {
+    background: #eff6ff;
+    border: 2px solid #2563a8;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: none;
+  }
+  .your-result.show { display: block; }
+  .your-result-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #2563a8; margin-bottom: 6px; }
+  .your-result-title { font-size: 18px; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+  .your-result-msg { font-size: 13px; color: #475569; line-height: 1.8; white-space: pre-line; }
+
+  /* まとめ */
+  .summary-box {
+    background: #eff6ff;
+    border: 2px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 28px;
+    text-align: center;
+  }
+  .summary-box h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    color: #1e3a5f;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .summary-box p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 2;
+    margin-bottom: 16px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #1e3a5f, #2563a8);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 32px;
+    border-radius: 99px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+
+  /* フッター */
+  .page-footer {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name { font-size: 11px; color: #94a3b8; }
+  .reset-btn {
+    background: none;
+    border: 1px solid #bfdbfe;
+    color: #2563a8;
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 99px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .reset-btn:hover { background: #eff6ff; }
+
+  @media (max-width: 520px) {
+    body { padding: 20px 12px; }
+    .page-header { padding: 28px 20px 24px; }
+    .page-title { font-size: 21px; }
+    .score-bar-section { padding: 16px 20px; }
+    .page-content { padding: 24px 20px 32px; }
+    .result-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .page-footer { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="page-header">
+    <div class="header-badge">🎁 無料特典</div>
+    <h1 class="page-title">女性が静かに去る男<br><span>チェックリスト30</span></h1>
+    <p class="page-subtitle">～ 大人の女性は、見ている ～</p>
+  </div>
+
+  <!-- スコアバー -->
+  <div class="score-bar-section">
+    <div class="score-num"><span id="score">0</span><span> / 30</span></div>
+    <div class="score-right">
+      <div class="score-bar-wrap"><div class="score-bar" id="scoreBar"></div></div>
+      <div class="score-status" id="scoreStatus">チェックを入れてみてください</div>
+    </div>
+  </div>
+
+  <!-- コンテンツ -->
+  <div class="page-content">
+
+    <!-- あなたの結果（動的） -->
+    <div class="your-result" id="yourResult">
+      <div class="your-result-label">📊 YOUR RESULT</div>
+      <div class="your-result-title" id="yourTitle"></div>
+      <div class="your-result-msg" id="yourMsg"></div>
+    </div>
+
+    <!-- 📱 スマホ編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📱</span>
+        <span class="section-title">スマホ編</span>
+        <span class="section-count" id="cnt-phone">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="phone"><span class="check-label"><span class="check-box">✓</span><span class="check-text">デート中にスマホを何度も見ている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="phone"><span class="check-label"><span class="check-box">✓</span><span class="check-text">通知が来るたびに反応してしまう</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="phone"><span class="check-label"><span class="check-box">✓</span><span class="check-text">相手が話している時にスマホを触る</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="phone"><span class="check-label"><span class="check-box">✓</span><span class="check-text">写真ばかり撮っている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="phone"><span class="check-label"><span class="check-box">✓</span><span class="check-text">スマホを机の上に置きっぱなし</span></span></label>
+      </div>
+    </div>
+
+    <!-- 🗣️ 会話編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🗣️</span>
+        <span class="section-title">会話編</span>
+        <span class="section-count" id="cnt-talk">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="talk"><span class="check-label"><span class="check-box">✓</span><span class="check-text">自分の話ばかりしている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="talk"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性の話を途中で遮る</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="talk"><span class="check-label"><span class="check-box">✓</span><span class="check-text">アドバイスばかりしている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="talk"><span class="check-label"><span class="check-box">✓</span><span class="check-text">話を覚えていない</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="talk"><span class="check-label"><span class="check-box">✓</span><span class="check-text">前回の会話を忘れている</span></span></label>
+      </div>
+    </div>
+
+    <!-- 🍽️ デート編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🍽️</span>
+        <span class="section-title">デート編</span>
+        <span class="section-count" id="cnt-date">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="date"><span class="check-label"><span class="check-box">✓</span><span class="check-text">店選びを女性任せにする</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="date"><span class="check-label"><span class="check-box">✓</span><span class="check-text">当日になって店を探す</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="date"><span class="check-label"><span class="check-box">✓</span><span class="check-text">予約をしていない</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="date"><span class="check-label"><span class="check-box">✓</span><span class="check-text">移動を考えていない</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="date"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性を歩かせすぎる</span></span></label>
+      </div>
+    </div>
+
+    <!-- 💰 会計編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">💰</span>
+        <span class="section-title">会計編</span>
+        <span class="section-count" id="cnt-pay">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="pay"><span class="check-label"><span class="check-box">✓</span><span class="check-text">レジ前で財布を探す</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="pay"><span class="check-label"><span class="check-box">✓</span><span class="check-text">支払いでモタモタする</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="pay"><span class="check-label"><span class="check-box">✓</span><span class="check-text">割り勘の説明が長い</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="pay"><span class="check-label"><span class="check-box">✓</span><span class="check-text">お金の話が多い</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="pay"><span class="check-label"><span class="check-box">✓</span><span class="check-text">支払い後に恩着せがましい</span></span></label>
+      </div>
+    </div>
+
+    <!-- 😌 余裕編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">😌</span>
+        <span class="section-title">余裕編</span>
+        <span class="section-count" id="cnt-calm">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="calm"><span class="check-label"><span class="check-box">✓</span><span class="check-text">LINEの返信速度を気にする</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="calm"><span class="check-label"><span class="check-box">✓</span><span class="check-text">既読未読ばかり見ている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="calm"><span class="check-label"><span class="check-box">✓</span><span class="check-text">すぐ次の約束を取りたがる</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="calm"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性の反応に一喜一憂する</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="calm"><span class="check-label"><span class="check-box">✓</span><span class="check-text">不安になると連投する</span></span></label>
+      </div>
+    </div>
+
+    <!-- 🤝 人間性編 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">🤝</span>
+        <span class="section-title">人間性編</span>
+        <span class="section-count" id="cnt-human">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="human"><span class="check-label"><span class="check-box">✓</span><span class="check-text">店員への態度が雑</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="human"><span class="check-label"><span class="check-box">✓</span><span class="check-text">感謝を言わない</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="human"><span class="check-label"><span class="check-box">✓</span><span class="check-text">約束の時間に遅れる</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="human"><span class="check-label"><span class="check-box">✓</span><span class="check-text">人の悪口が多い</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="human"><span class="check-label"><span class="check-box">✓</span><span class="check-text">自慢話が多い</span></span></label>
+      </div>
+    </div>
+
+    <!-- 👑 選ばれる男チェック -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">👑</span>
+        <span class="section-title">選ばれる男チェック</span>
+        <span class="section-count" id="cnt-king">0 / 5</span>
+      </div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="king"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性を楽しませようとしすぎる</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="king"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性に選ばれようとしている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="king"><span class="check-label"><span class="check-box">✓</span><span class="check-text">無理して良く見せている</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="king"><span class="check-label"><span class="check-box">✓</span><span class="check-text">自分の人生より恋愛を優先している</span></span></label>
+        <label class="check-item"><input type="checkbox" class="chk" data-sec="king"><span class="check-label"><span class="check-box">✓</span><span class="check-text">女性中心で人生が回っている</span></span></label>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 診断結果 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-emoji">📊</span>
+        <span class="section-title">診断結果</span>
+      </div>
+      <div class="result-grid">
+        <div class="result-card r1">
+          <div class="result-icon">🌸</div>
+          <div class="result-range">0〜5個</div>
+          <div class="result-name">かなり良い状態</div>
+          <div class="result-desc">大きな減点は少ない。今後は安心感を積み上げよう。</div>
+        </div>
+        <div class="result-card r2">
+          <div class="result-icon">☕</div>
+          <div class="result-range">6〜10個</div>
+          <div class="result-name">要改善</div>
+          <div class="result-desc">気づいていない減点がある。ここを直すだけで変わる。</div>
+        </div>
+        <div class="result-card r3">
+          <div class="result-icon">⚠️</div>
+          <div class="result-range">11〜20個</div>
+          <div class="result-name">危険信号</div>
+          <div class="result-desc">女性が去る原因が複数ある。まず減点を減らそう。</div>
+        </div>
+        <div class="result-card r4">
+          <div class="result-icon">🔥</div>
+          <div class="result-range">21個以上</div>
+          <div class="result-name">20年前の私です</div>
+          <div class="result-desc">安心してください。私もここからスタートしました。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- まとめ -->
+    <div class="summary-box">
+      <h3>女性は完璧を求めていない。<br>減点が少ない人を選ぶ。</h3>
+      <p>
+        だからモテようとしなくていい。<br>
+        まずは減点を減らすこと。<br>
+        そこから人生は変わる。
+      </p>
+      <div class="cta-btn">📲 公式LINEで詳しく学ぶ</div>
+    </div>
+
+  </div><!-- /page-content -->
+
+  <!-- フッター -->
+  <div class="page-footer">
+    <span class="footer-name">やや｜大人の女性攻略【エスコート】令和のイケオジ熟</span>
+    <button class="reset-btn" onclick="resetAll()">🔄 リセット</button>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  const counters = { phone:0, talk:0, date:0, pay:0, calm:0, human:0, king:0 };
+  const secIds = { phone:'cnt-phone', talk:'cnt-talk', date:'cnt-date', pay:'cnt-pay', calm:'cnt-calm', human:'cnt-human', king:'cnt-king' };
+
+  function getResult(n) {
+    if (n <= 5)  return { title:'🌸 かなり良い状態', msg:'大きな減点は少ない状態です。\n今後は安心感をさらに積み上げていきましょう。' };
+    if (n <= 10) return { title:'☕ 要改善', msg:'気づいていない減点がいくつかあります。\nここを直すだけで、女性の反応が変わります。' };
+    if (n <= 20) return { title:'⚠️ 危険信号', msg:'女性が静かに去る原因が複数あります。\nまずは減点を1つずつ減らしていきましょう。' };
+    return { title:'🔥 20年前の私です', msg:'安心してください。\n私もここからスタートしました。\n気づいた今日が、変わる最初の日です。' };
+  }
+
+  function updateUI() {
+    const total = Object.values(counters).reduce((a,b)=>a+b,0);
+    document.getElementById('score').textContent = total;
+    document.getElementById('scoreBar').style.width = (total/30*100) + '%';
+    Object.keys(counters).forEach(sec => {
+      document.getElementById(secIds[sec]).textContent = counters[sec] + ' / 5';
+    });
+    if (total === 0) {
+      document.getElementById('scoreStatus').textContent = 'チェックを入れてみてください';
+      document.getElementById('yourResult').classList.remove('show');
+    } else {
+      const r = getResult(total);
+      document.getElementById('scoreStatus').textContent = r.title;
+      document.getElementById('yourTitle').textContent = r.title;
+      document.getElementById('yourMsg').textContent = r.msg;
+      document.getElementById('yourResult').classList.add('show');
+    }
+  }
+
+  document.querySelectorAll('.chk').forEach(chk => {
+    chk.addEventListener('change', function() {
+      const sec = this.dataset.sec;
+      counters[sec] = document.querySelectorAll('.chk[data-sec="'+sec+'"]:checked').length;
+      updateUI();
+    });
+  });
+
+  function resetAll() {
+    document.querySelectorAll('.chk').forEach(c => c.checked = false);
+    Object.keys(counters).forEach(k => counters[k] = 0);
+    updateUI();
+  }
+</script>
+</body>
+</html>
